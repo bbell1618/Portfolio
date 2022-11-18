@@ -2,3 +2,14 @@
 # and print the contents of the file in upper case. Use the file words.txt to produce the output below.
 # When you are testing below enter words.txt as the file name.
 
+file = input("Enter file name: ")
+
+try:
+    openfile = open(file)
+except:
+    print("File cannot be opened:", file)
+    exit()
+
+for line in openfile:
+    line = line.rstrip()
+    print(line.upper())

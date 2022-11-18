@@ -1,0 +1,27 @@
+Invitae is dedicated to bringing comprehensive genetic information into mainstream medicine to improve healthcare for billions of people. Our team is driven to make a difference for the patients we serve. We are leading the transformation of the genetics industry, by making clinical-grade genetic information affordable and accessible to guide health decisions across all stages of life.
+
+Our team is expanding rapidly and we’re looking for people who are passionate about helping improve healthcare to join us. We are looking for a pro-active, highly detailed-oriented Atlassian Administrator to join our team.
+
+What You’ll Do
+	• Provide Level II / III support to teams and end users
+	• Perform medium to high complexity configuration changes independently
+	• Evaluate configuration changes for risk, usability, and scalability
+	• Assist with plugin management, system configuration changes, and migrations
+	• Where necessary, train users on best practices
+What You Bring
+	• Typically requires a minimum of 10-12 years of related experience with a Bachelor’s degree. Any equivalent combination of training, education, and experience that provides the required skills, knowledge and abilities.
+	• Minimum 5 years of experience supporting Cloud deployments of Jira Software, Jira Service Management, and Confluence
+	• Strong communication and technical writing skills
+	• Strong knowledge of JQL, automation, and reporting capabilities of Jira
+	• Proven track record of supporting Agile teams (Scrum, Kanban)
+	• Ability to integrate Jira with 3rd party products
+Nice To Have
+	• Atlassian certifications
+	• Experience with migrations (Server2Cloud, Cloud2Cloud)
+	• Consulting/advisory experience with an Atlassian partner
+By joining Invitae, you’ll work alongside some of the world’s experts in genetics and healthcare at the forefront of genetic medicine. We’ve crafted a culture that empowers our teams and our teammates to have the biggest impact and to explore their interests and capabilities. We prize freedom with accountability and offer significant flexibility, along with excellent benefits and competitive compensation in a fast-growing organization.
+
+
+X-DSPAM-Confidence: 0.9
+X-DSPAM-Confidence: 0.8
+X-DSPAM-Confidence: 0.7
