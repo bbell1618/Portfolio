@@ -1,14 +1,36 @@
 import { PDFParse } from "pdf-parse";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 import { openrouter, MODELS } from "@/lib/openrouter";
 import { SYSTEM_PROMPT } from "@/lib/prompts";
+import { canAnalyze, recordUsage } from "@/lib/usage";
+
+function getClientIp(req: Request): string {
+  return (
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
+    "unknown"
+  );
+}
 
 export async function POST(req: Request) {
   try {
+    // Auth & usage check
+    const session = await getServerSession(authOptions);
+    const userId = session?.user?.email ?? `anon:${getClientIp(req)}`;
+    const tier = session ? "pro" : "free";
+
+    if (!canAnalyze(userId, tier as "free" | "pro")) {
+      return Response.json(
+        { error: "Free limit reached", upgradeUrl: "/pricing" },
+        { status: 429 }
+      );
+    }
+
     let paperText = "";
     const contentType = req.headers.get("content-type") || "";
 
     if (contentType.includes("multipart/form-data")) {
-      // PDF upload
       const formData = await req.formData();
       const file = formData.get("file") as File | null;
       if (!file) {
@@ -20,7 +42,6 @@ export async function POST(req: Request) {
       paperText = result.text;
       await parser.destroy();
     } else {
-      // JSON body: text or url
       const body = await req.json();
       if (body.text) {
         paperText = body.text;
@@ -41,6 +62,9 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+
+    // Record usage before streaming (counts the attempt)
+    recordUsage(userId);
 
     const stream = await openrouter.chat.completions.create({
       model: MODELS.ANALYSIS,

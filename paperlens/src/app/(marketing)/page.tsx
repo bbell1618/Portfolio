@@ -1,4 +1,5 @@
 import UploadCard from "@/components/UploadCard";
+import AuthButton from "@/components/AuthButton";
 
 const steps = [
   {
@@ -63,8 +64,14 @@ const plans = [
 export default function MarketingPage() {
   return (
     <main className="min-h-screen">
+      {/* Nav */}
+      <nav className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
+        <span className="text-lg font-bold text-white">PaperLens</span>
+        <AuthButton />
+      </nav>
+
       {/* Hero */}
-      <section className="section-animate px-6 pt-20 pb-16 md:pt-32 md:pb-24 text-center max-w-4xl mx-auto">
+      <section className="section-animate px-6 pt-12 pb-16 md:pt-24 md:pb-24 text-center max-w-4xl mx-auto">
         <div className="inline-block bg-accent/10 text-accent text-sm font-medium px-4 py-1.5 rounded-full mb-6">
           AI-powered paper analysis
         </div>
